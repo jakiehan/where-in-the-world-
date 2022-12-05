@@ -30,7 +30,3 @@ export const client = async (url, { body, ...customConfig }) => {
 client.get = function(url, customConfig = {}) {
   return client(url, customConfig)
 }
-
-client.post = function (url, body, customConfig = {}) {
-  return client(url, {body, ...customConfig})
-}

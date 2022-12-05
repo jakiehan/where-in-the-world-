@@ -33,7 +33,7 @@ export const BackBtn = styled(StyledButton).attrs({
   background-color: ${({ theme }) => theme.color.bgElem};
   box-shadow: ${({ theme }) => theme.color.shadow};
   color: ${({ theme }) => theme.color.text};
-  border-radius: 4px;
+  border-radius: ${({theme}) => theme.borderRadius.md};
   
   &:hover {
     box-shadow: ${({ theme }) => theme.color.shadowHov};
@@ -43,6 +43,6 @@ export const BackBtn = styled(StyledButton).attrs({
     padding: 7px 20px;
     font-size: 12px;
     line-height: 13px;
-    border-radius: 2px;
+    border-radius: ${({theme}) => theme.borderRadius.sm};
   }
 `

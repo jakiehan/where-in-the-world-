@@ -1,15 +1,22 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadNeighboringCountries } from '../../store/details/detailsActions.js';
 import { selectNeighboringCountries } from '../../store/details/detailsSelectors.js';
 import {StyledDetailsCountry, ImgWrapper, Flip, ImgFlag, ImgPhoto, DataWrapper, Title, ListGroup, List, ButtonGroup, Button, ButtonWrapper } from './DetailsCountry.styled.js';
+import { bordersConstant, PHOTO_URL } from '../../utils/constants/generalConstants.js';
 
 const DetailsCountry = ({ country, push }) => {
+
+  const [isClick, setIsClick] = useState(false);
 
   const { img, name, mainInfo, additionalInfo, borders } = country;
 
   const dispatch = useDispatch();
   const neighbors = useSelector(selectNeighboringCountries);
+
+  const handleClick = () => {
+    setIsClick(!isClick);
+  }
 
   useEffect(() => {
 
@@ -20,10 +27,18 @@ const DetailsCountry = ({ country, push }) => {
 
   return (
     <StyledDetailsCountry>
-      <ImgWrapper>
+      <ImgWrapper isClick={isClick}>
         <Flip>
-          <ImgFlag src={img} alt="Флаг" />
-          <ImgPhoto src={`https://source.unsplash.com/random/?${name},nature`} alt="Фото из страны" />
+          <ImgFlag
+            src={img}
+            alt="Флаг"
+            onClick={handleClick}
+          />
+          <ImgPhoto
+            src={`${PHOTO_URL}${name},nature`}
+            alt="Фото из страны"
+            onClick={handleClick}
+          />
         </Flip>
       </ImgWrapper>
       <DataWrapper>
@@ -34,30 +49,22 @@ const DetailsCountry = ({ country, push }) => {
           <List>
             {mainInfo.map(item =>
               <li key={item.title}>
-                <h3>
-                  {item.title}
-                </h3>
-                <p>
-                  {item.description}
-                </p>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
               </li>
             )}
           </List>
           <List>
             {additionalInfo.map(item =>
               <li key={item.title}>
-                <h3>
-                  {item.title}
-                </h3>
-                <p>
-                  {item.description}
-                </p>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
               </li>
             )}
           </List>
         </ListGroup>
         <ButtonWrapper>
-          <h3>Border countries:</h3>
+          <h3>{bordersConstant.title}</h3>
             {borders.length ? (
               <ButtonGroup>
                 {neighbors?.map(c =>
@@ -69,7 +76,7 @@ const DetailsCountry = ({ country, push }) => {
                 )}
               </ButtonGroup>
               ) : (
-              <p>There is no border countries</p>
+              <p>{bordersConstant.notification}</p>
             )}
         </ButtonWrapper>
       </DataWrapper>

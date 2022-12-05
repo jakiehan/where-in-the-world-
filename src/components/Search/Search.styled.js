@@ -5,7 +5,7 @@ export const StyledForm = styled.form.attrs({
   name: 'search form',
 })`
   position: relative;
-  border-radius: 6px;
+  border-radius: ${({theme}) => theme.borderRadius.lg};
   box-shadow: ${({theme}) => theme.color.shadow};
 `
 
@@ -26,7 +26,7 @@ export const Input = styled.input.attrs({
   padding: 10px 10px 10px 45px;
   outline: none;
   border: none;
-  border-radius: 6px;
+  border-radius: ${({theme}) => theme.borderRadius.lg};
   background-color: ${({ theme }) => theme.color.bgElem};
   color: ${({ theme }) => theme.color.text};
   width: 100%;
@@ -48,7 +48,7 @@ export const Input = styled.input.attrs({
   &:-webkit-autofill {
     -webkit-box-shadow: inset 0 0 0 50px #2b3238;
     -webkit-text-fill-color: ${({ theme }) => theme.color.text};
-    -webkit-border-radius: 6px;
+    -webkit-border-radius: ${({theme}) => theme.borderRadius.lg};
   }
 
   &:-webkit-autofill:focus {
@@ -60,7 +60,7 @@ export const Input = styled.input.attrs({
   }
 
   @media (max-width: ${({theme}) => theme.media.mobile}) {
-    border-radius: 5px;
+    border-radius: ${({theme}) => theme.borderRadius.md};
     font-size: 13px;
     line-height: 14px;
 

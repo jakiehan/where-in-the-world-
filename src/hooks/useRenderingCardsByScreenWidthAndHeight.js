@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { cardHeight } from '../utils/constants/generalConstants.js';
 
 export const useRenderingCardsByScreenWidthAndHeight = () => {
 
@@ -9,7 +10,6 @@ export const useRenderingCardsByScreenWidthAndHeight = () => {
   const [additionalNumberOfCards, setAdditionalNumberOfCards] = useState(0);
 
   const cards = JSON.parse(localStorage.getItem('cards'))
-  const h = 310
 
   const setUpdateTimer = () => {
     setTimeout(() => {
@@ -23,11 +23,11 @@ export const useRenderingCardsByScreenWidthAndHeight = () => {
       setInitialNumberOfCards(cards)
     } else {
       if (currentWindowInnerWidth >= 1217) {
-        setInitialNumberOfCards(Math.trunc(initialWindowInnerHeight / h * 4));
+        setInitialNumberOfCards(Math.trunc(initialWindowInnerHeight / cardHeight * 4));
       } else if (currentWindowInnerWidth > 921 ) {
-        setInitialNumberOfCards(Math.trunc(initialWindowInnerHeight / h * 3));
+        setInitialNumberOfCards(Math.trunc(initialWindowInnerHeight / cardHeight * 3));
       } else {
-        setInitialNumberOfCards(Math.trunc(initialWindowInnerHeight / h * 2));
+        setInitialNumberOfCards(Math.trunc(initialWindowInnerHeight / cardHeight * 2));
       }
     }
   }
@@ -35,9 +35,9 @@ export const useRenderingCardsByScreenWidthAndHeight = () => {
   const setAdditionalNumberCards = () => {
 
     if (currentWindowInnerWidth >= 1217) {
-      setAdditionalNumberOfCards(12);
+      setAdditionalNumberOfCards(16);
     } else if (currentWindowInnerWidth > 921) {
-      setAdditionalNumberOfCards(9);
+      setAdditionalNumberOfCards(12);
     } else {
       setAdditionalNumberOfCards(6);
     }
@@ -45,11 +45,11 @@ export const useRenderingCardsByScreenWidthAndHeight = () => {
 
   const defineAdditionalNumberOfCardsWhenChangingWidth = () => {
 
-    if ((currentWindowInnerWidth > 921 && currentWindowInnerWidth < 1217) && (initialNumberOfCards < Math.trunc(initialWindowInnerHeight) / h * 3)) {
-      setInitialNumberOfCards(prevState => prevState + ((Math.trunc(initialWindowInnerHeight) / h * 3) - initialNumberOfCards))
+    if ((currentWindowInnerWidth > 921 && currentWindowInnerWidth < 1217) && (initialNumberOfCards < Math.trunc(initialWindowInnerHeight) / cardHeight * 3)) {
+      setInitialNumberOfCards(prevState => prevState + ((Math.trunc(initialWindowInnerHeight) / cardHeight * 3) - initialNumberOfCards))
     }
-    if (currentWindowInnerWidth > 1217 && initialNumberOfCards < Math.trunc(initialWindowInnerHeight) / h * 4) {
-      setInitialNumberOfCards(prevState => prevState + ((Math.trunc(initialWindowInnerHeight) / h * 4) - initialNumberOfCards))
+    if (currentWindowInnerWidth > 1217 && initialNumberOfCards < Math.trunc(initialWindowInnerHeight) / cardHeight * 4) {
+      setInitialNumberOfCards(prevState => prevState + ((Math.trunc(initialWindowInnerHeight) / cardHeight * 4) - initialNumberOfCards))
     }
   }
 
@@ -68,11 +68,11 @@ export const useRenderingCardsByScreenWidthAndHeight = () => {
   useEffect(() => {
 
     if (initialWindowInnerWidth === currentWindowInnerWidth) {
-      setNumberCards();
-      setAdditionalNumberCards();
+    setNumberCards();
+    setAdditionalNumberCards();
     } else {
-      setAdditionalNumberCards();
-      defineAdditionalNumberOfCardsWhenChangingWidth();
+    setAdditionalNumberCards();
+    defineAdditionalNumberOfCardsWhenChangingWidth();
     }
 
     window.addEventListener('resize', setUpdateTimer);

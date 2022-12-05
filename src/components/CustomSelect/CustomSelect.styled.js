@@ -5,12 +5,12 @@ import { IoClose } from 'react-icons/io5';
 export const StyledDropdownContainer = styled.div`
   width: 175px;
   position: relative;
-  border-radius: 6px;
+  border-radius: ${({ theme }) => theme.borderRadius.lg};
   box-shadow: ${({ theme }) => theme.color.shadow};
 
   @media (max-width: ${({theme}) => theme.media.mobile}) {
     width: 160px;
-    border-radius: 5px;
+    border-radius: ${({ theme }) => theme.borderRadius.md};
   }
 `
 
@@ -22,7 +22,7 @@ export const Wrapper = styled.div`
   cursor: pointer;
   background-color: ${({ theme }) => theme.color.bgElem};
   padding: 0 15px;
-  border-radius: 6px;
+  border-radius: ${({ theme }) => theme.borderRadius.lg};
 
   &:hover {
     box-shadow: ${({ theme }) => theme.color.shadowHov};
@@ -30,7 +30,7 @@ export const Wrapper = styled.div`
 
   @media (max-width: ${({theme}) => theme.media.mobile}) {
     height: 34px;
-    border-radius: 5px;
+    border-radius: ${({ theme }) => theme.borderRadius.md};
   }
 
   @media (max-width: ${({theme}) => theme.media.tablet.max}) and (min-width: ${({ theme }) => theme.media.tablet.min}) {
@@ -85,7 +85,7 @@ export const List = styled.div`
   width: 100%;
   background-color: ${({ theme }) => theme.color.bgElem};
   box-shadow: ${({ theme }) => theme.color.shadow};
-  border-radius: 3px 3px 6px 6px;
+  border-radius: ${({ theme }) => theme.borderRadius.sm} ${({ theme }) => theme.borderRadius.sm} ${({ theme }) => theme.borderRadius.lg} ${({ theme }) => theme.borderRadius.lg};
   visibility: ${({ isOpen }) => isOpen ? 'visible' : 'hidden'};
   position: absolute;
   top: 45px;
@@ -121,6 +121,7 @@ export const List = styled.div`
     p {
       font-size: 13px;
       line-height: 14px;
+      border-radius: ${({ theme }) => theme.borderRadius.sm} ${({ theme }) => theme.borderRadius.sm} ${({ theme }) => theme.borderRadius.md} ${({ theme }) => theme.borderRadius.md};
     }
   }
 

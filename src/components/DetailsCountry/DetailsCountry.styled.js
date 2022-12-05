@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { StyledList } from '../../styles/List.styled.js';
 import { StyledButton } from '../../styles/Button.styled.js';
 
 export const StyledDetailsCountry = styled.div`
@@ -38,8 +39,12 @@ export const ImgWrapper = styled.div`
     height: 330px;
   }
 
-  &:hover div {
-    transform: rotateY(180deg);
+  div {
+    transform: ${({isClick}) => isClick && 'rotateY(180deg)'}
+  }
+  
+  &:hover > div {
+    box-shadow: ${({theme}) => theme.color.shadowImgHov};
   }
 `
 
@@ -78,7 +83,7 @@ export const DataWrapper = styled.div`
 `
 
 export const Title = styled.h2`
-  font-weight: 800;
+  font-weight: ${({ theme }) => theme.fontWeight.lg};
   font-size: 23px;
   line-height: 25px;
   margin: 0;
@@ -106,13 +111,10 @@ export const ListGroup = styled.div`
   }
 `
 
-export const List = styled.ul`
+export const List = styled(StyledList)`
   display: flex;
   flex-direction: column;
   gap: 7px;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
   
   li {
     display: flex;
@@ -122,7 +124,7 @@ export const List = styled.ul`
   
   h3 {
     margin: 0;
-    font-weight: 600;
+    font-weight: ${({ theme }) => theme.fontWeight.md};
     font-size: 14px;
     line-height: 15px;
     color: ${({ theme }) => theme.color.text};
@@ -155,7 +157,7 @@ export const ButtonWrapper = styled.div`
   gap: 20px;
   
   h3 {
-    font-weight: 600;
+    font-weight: ${({ theme }) => theme.fontWeight.md};
     font-size: 14px;
     line-height: 15px;
     color: ${({ theme }) => theme.color.text};
@@ -195,6 +197,7 @@ export const Button = styled(StyledButton)`
   width: 90px;
   padding: 5px 3px;
   background-color: ${({ theme }) => theme.color.bgElem};
+  border-radius: ${({theme}) => theme.borderRadius.sm};
   box-shadow: ${({ theme }) => theme.color.shadow};
   color: ${({ theme }) => theme.color.text};
   font-size: 14px;

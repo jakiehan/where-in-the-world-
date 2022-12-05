@@ -11,8 +11,10 @@ import { selectVisibleCountries, selectAllCountries } from '../../store/countrie
 import { selectRegion, selectSearch} from '../../store/controls/controlsSelectors.js';
 import { refactorCountryInfo } from '../../utils/refactorCountryInfo.js';
 import { useRenderingCardsByScreenWidthAndHeight } from '../../hooks/useRenderingCardsByScreenWidthAndHeight.js';
+import { searchMsg } from '../../utils/constants/generalConstants.js';
 
 const HomePage = () => {
+
   const dispatch = useDispatch();
   const search = useSelector(selectSearch);
   const region = useSelector(selectRegion);
@@ -24,7 +26,7 @@ const HomePage = () => {
   useEffect(() => {
 
     if (list.length === 0) {
-      dispatch(loadCountries())
+      dispatch(loadCountries());
     }
   }, [])
 
@@ -49,7 +51,7 @@ const HomePage = () => {
             )}
           </ListCountries>
         ) : (
-          <ErrorMessage>Nothing found</ErrorMessage>
+          <ErrorMessage>{searchMsg}</ErrorMessage>
         )
       )}
     </StyledHomePage>

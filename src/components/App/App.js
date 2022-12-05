@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { selectDarkTheme } from '../../store/theme/themeSelectors.js';
 import GlobalStyled from '../../styles/Global.styled.js';
 import { ThemeProvider } from 'styled-components';
-import { darkTheme, lightTheme } from '../../styles/theme.js';
+import theme from '../../styles/theme.js';
 import Layout from '../Layout/Layout.jsx';
 import HomePage from '../../pages/HomePage/HomePage.jsx';
 import DetailedPage from '../../pages/DetailedPage/DetailedPage.jsx';
@@ -14,7 +14,7 @@ const App = () => {
   const darkMode = useSelector(selectDarkTheme);
 
   return (
-    <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+    <ThemeProvider theme={darkMode ? theme.dark : theme.light}>
       <GlobalStyled />
       <Routes>
         <Route exact path="/" element={<Layout />}>

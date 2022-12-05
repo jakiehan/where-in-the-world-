@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useDispatch } from 'react-redux';
 import { clearControls } from '../../store/controls/controlsActions.js';
 import { StyledHeader, ContainerHeader, WrapperLink, Title } from './Header.styled';
 import ModeSwitcher from '../ModeSwitcher/ModeSwitcher.jsx';
+import { headerTitle } from '../../utils/constants/generalConstants.js';
 
 const Header = () => {
 
@@ -18,7 +19,7 @@ const Header = () => {
       <ContainerHeader>
         <WrapperLink>
           <Title onClick={handleClick}>
-            Where in the world?
+            {headerTitle}
           </Title>
         </WrapperLink>
         <ModeSwitcher />
@@ -27,4 +28,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default memo(Header);

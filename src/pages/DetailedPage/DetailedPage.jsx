@@ -4,10 +4,11 @@ import { StyledDetailedPage, BackBtn } from './DetailedPage.styled.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectDetails } from '../../store/details/detailsSelectors.js';
 import { loadCurrentCountry, setClearCountry } from '../../store/details/detailsActions.js';
-import DetailsCountry from '../../components/Details/DetailsCountry.jsx';
+import DetailsCountry from '../../components/DetailsCountry/DetailsCountry.jsx';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage.jsx';
 import Preloader from '../../components/Preloader/Preloader.jsx';
 import { refactorCurrentCountryInfo } from '../../utils/refactorCurrentCountryInfo.js';
+import { backBtn } from '../../utils/constants/generalConstants.js';
 
 const DetailedPage = () => {
 
@@ -42,7 +43,7 @@ const DetailedPage = () => {
       {status === 'received' && (
         <>
           <BackBtn onClick={handleClick}>
-            ← Back
+            {backBtn}
           </BackBtn>
           <DetailsCountry country={refactorCurrentCountryInfo(country)} push={navigate} />
         </>

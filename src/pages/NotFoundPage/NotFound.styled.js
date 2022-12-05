@@ -12,7 +12,7 @@ export const StyledNotFound = styled.div`
 export const Title = styled.p`
   font-size: 51px;
   line-height: 53px;
-  font-weight: 600;
+  font-weight: ${({theme}) => theme.fontWeight.md};
   margin: 0;
   text-align: center;
   color: ${({theme}) => theme.color.text};
@@ -58,7 +58,7 @@ export const Button = styled(StyledButton).attrs({
   box-shadow: ${({theme}) => theme.color.shadow};
   font-size: 17px;
   line-height: 19px;
-  border-radius: 6px;
+  border-radius: ${({theme}) => theme.borderRadius.lg};
   margin-top: 75px;
   
   &:hover {

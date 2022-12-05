@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setRegion } from '../../store/controls/controlsActions.js';
 import { selectRegion } from '../../store/controls/controlsSelectors.js';

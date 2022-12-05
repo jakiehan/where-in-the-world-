@@ -1,13 +1,12 @@
 import styled from 'styled-components';
+import { StyledList } from '../../styles/List.styled.js';
 
-export const StyledListCountries = styled.ul`
+export const StyledListCountries = styled(StyledList)`
   display: grid;
   grid-template-columns: repeat(auto-fill, 255px);
   justify-content: space-evenly;
   gap: 40px;
   padding: 10px 0;
-  margin: 0;
-  list-style-type: none;
 
   @media (max-width: ${({theme}) => theme.media.mobile}) {
     grid-template-columns: repeat(auto-fit, 235px);

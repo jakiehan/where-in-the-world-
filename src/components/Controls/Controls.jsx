@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { StyledControls } from './Controls.styled';
 import Search from '../Search/Search.jsx';
 import CustomSelect from '../CustomSelect/CustomSelect.jsx';
@@ -18,4 +18,4 @@ const Controls = () => {
   );
 };
 
-export default Controls;
+export default memo(Controls);

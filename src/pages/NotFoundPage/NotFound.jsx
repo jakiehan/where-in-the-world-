@@ -3,11 +3,14 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { StyledNotFound, Title, SubTitle, Button } from './NotFound.styled.js';
 import { setClearCountry } from '../../store/details/detailsActions.js';
+import { notFound } from '../../utils/constants/generalConstants.js';
 
 const NotFound = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const { title, subTitle, btn } = notFound;
 
   const handleClick = () => {
     navigate('/');
@@ -18,13 +21,13 @@ const NotFound = () => {
   return (
     <StyledNotFound>
       <Title>
-        404
+        {title}
       </Title>
       <SubTitle>
-        Not Found...
+        {subTitle}
       </SubTitle>
       <Button onClick={handleClick}>
-        На главную
+        {btn}
       </Button>
     </StyledNotFound>
   );

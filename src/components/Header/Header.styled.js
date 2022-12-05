@@ -32,7 +32,7 @@ export const WrapperLink = styled(Link).attrs({
 export const Title = styled.h1`
   font-size: 18px;
   line-height: 20px;
-  font-weight: 800;
+  font-weight: ${({ theme }) => theme.fontWeight.lg};
   margin: 0;
   text-shadow: ${({ theme }) => theme.color.shadowText};
 

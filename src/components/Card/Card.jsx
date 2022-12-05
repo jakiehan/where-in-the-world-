@@ -13,8 +13,11 @@ const Card = ({ cardInfo, numberCards }) => {
   }
 
   return (
-    <StyledCard onClick={handleClick} >
-      <Img src={img} alt="Флаг страны" />
+    <StyledCard onClick={handleClick}>
+      <Img
+        src={img}
+        alt="Флаг страны"
+      />
       <InfoWrapper>
         <h2>{name}</h2>
         <ListDescription>
