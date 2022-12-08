@@ -1,9 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { loadNeighboringCountries } from '../../store/details/detailsActions.js';
-import { selectNeighboringCountries } from '../../store/details/detailsSelectors.js';
-import {StyledDetailsCountry, ImgWrapper, Flip, ImgFlag, ImgPhoto, DataWrapper, Title, ListGroup, List, ButtonGroup, Button, ButtonWrapper } from './DetailsCountry.styled.js';
-import { bordersConstant, PHOTO_URL } from '../../utils/constants/generalConstants.js';
+import { loadNeighboringCountries } from '../../store/details/detailsActions';
+import { selectNeighboringCountries } from '../../store/details/detailsSelectors';
+import { bordersConstant, PHOTO_URL } from '../../utils/constants/generalConstants';
+import {
+  StyledDetailsCountry,
+  ImgWrapper,
+  Flip,
+  ImgFlag,
+  ImgPhoto,
+  DataWrapper,
+  Title,
+  ListGroup,
+  List,
+  ButtonGroup,
+  Button,
+  ButtonWrapper,
+} from './DetailsCountry.styled';
 
 const DetailsCountry = ({ country, push }) => {
 
@@ -16,14 +29,13 @@ const DetailsCountry = ({ country, push }) => {
 
   const handleClick = () => {
     setIsClick(!isClick);
-  }
+  };
 
   useEffect(() => {
-
     if (borders.length) {
-      dispatch(loadNeighboringCountries(borders))
+      dispatch(loadNeighboringCountries(borders));
     }
-  }, [borders])
+  }, [borders, dispatch]);
 
   return (
     <StyledDetailsCountry>
@@ -42,42 +54,38 @@ const DetailsCountry = ({ country, push }) => {
         </Flip>
       </ImgWrapper>
       <DataWrapper>
-        <Title>
-          {name}
-        </Title>
+        <Title>{name}</Title>
         <ListGroup>
           <List>
-            {mainInfo.map(item =>
+            {mainInfo.map((item) => (
               <li key={item.title}>
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
               </li>
-            )}
+            ))}
           </List>
           <List>
-            {additionalInfo.map(item =>
+            {additionalInfo.map((item) => (
               <li key={item.title}>
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
               </li>
-            )}
+            ))}
           </List>
         </ListGroup>
         <ButtonWrapper>
           <h3>{bordersConstant.title}</h3>
-            {borders.length ? (
-              <ButtonGroup>
-                {neighbors?.map(c =>
-                  <li key={c}>
-                    <Button onClick={() => push(`/country/${c}`)}>
-                      {c}
-                    </Button>
-                  </li>
-                )}
-              </ButtonGroup>
-              ) : (
-              <p>{bordersConstant.notification}</p>
-            )}
+          {borders.length ? (
+            <ButtonGroup>
+              {neighbors?.map((c) => (
+                <li key={c}>
+                  <Button onClick={() => push(`/country/${c}`)}>{c}</Button>
+                </li>
+              ))}
+            </ButtonGroup>
+          ) : (
+            <p>{bordersConstant.notification}</p>
+          )}
         </ButtonWrapper>
       </DataWrapper>
     </StyledDetailsCountry>

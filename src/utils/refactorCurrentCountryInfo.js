@@ -1,9 +1,9 @@
 export const refactorCurrentCountryInfo = (country) => {
-
   const currencies = [];
 
+  // eslint-disable-next-line no-restricted-syntax, guard-for-in, prefer-const
   for (let key in country.currencies) {
-    currencies.push(country.currencies[key].name)
+    currencies.push(country.currencies[key].name);
   }
 
   return {
@@ -38,9 +38,11 @@ export const refactorCurrentCountryInfo = (country) => {
       },
       {
         title: 'Languages:',
-        description: country.languages ? Object.values(country.languages).join(', ') : 'No information',
+        description: country.languages
+          ? Object.values(country.languages).join(', ')
+          : 'No information',
       },
     ],
-    borders: country.borders || []
-  }
-}
+    borders: country.borders || [],
+  };
+};

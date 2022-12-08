@@ -5,7 +5,7 @@ const initialState = {
   country: null,
   neighbors: null,
   status: 'idle',
-}
+};
 
 export const detailsReducer = (state = initialState, { type, payload }) => {
   switch (type) {
@@ -13,15 +13,15 @@ export const detailsReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         status: 'rejected',
-        error: payload
-      }
+        error: payload,
+      };
     }
     case SET_LOADING: {
       return {
         ...state,
         status: 'loading',
         error: null,
-      }
+      };
     }
     case SET_COUNTRY: {
       return {
@@ -29,20 +29,20 @@ export const detailsReducer = (state = initialState, { type, payload }) => {
         status: 'received',
         error: null,
         country: payload,
-      }
+      };
     }
     case SET_NEIGHBORS: {
       return {
         ...state,
         error: null,
-        neighbors: payload
-      }
+        neighbors: payload,
+      };
     }
     case SET_CLEAR_COUNTRY: {
-      return initialState
+      return initialState;
     }
     default: {
-      return state
+      return state;
     }
   }
-}
+};

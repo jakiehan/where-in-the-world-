@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { StyledContainer } from '../../styles/Container.styled';
 import { Link } from 'react-router-dom';
+import { StyledContainer } from '../../styles/Container.styled';
 
 export const StyledHeader = styled.header`
   min-height: 100px;

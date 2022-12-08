@@ -1,7 +1,7 @@
 export const client = async (url, { body, ...customConfig }) => {
   const headers = {
-    'Content-Type': 'application/json'
-  }
+    'Content-Type': 'application/json',
+  };
 
   const config = {
     method: body ? 'POST' : 'GET',
@@ -9,8 +9,8 @@ export const client = async (url, { body, ...customConfig }) => {
     headers: {
       ...headers,
       ...customConfig.headers,
-    }
-  }
+    },
+  };
 
   if (body) {
     config.body = JSON.stringify(body);
@@ -25,8 +25,8 @@ export const client = async (url, { body, ...customConfig }) => {
   } catch (err) {
     return Promise.reject(err);
   }
-}
+};
 
-client.get = function(url, customConfig = {}) {
-  return client(url, customConfig)
-}
+client.get = function (url, customConfig = {}) {
+  return client(url, customConfig);
+};

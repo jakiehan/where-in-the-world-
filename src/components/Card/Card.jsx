@@ -1,16 +1,23 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { StyledCard, Img, InfoWrapper, ListDescription, DescriptionTitle, DescriptionText  } from './Card.styled.js';
+import {
+  StyledCard,
+  Img,
+  InfoWrapper,
+  ListDescription,
+  DescriptionTitle,
+  DescriptionText,
+} from './Card.styled';
 
 const Card = ({ cardInfo, numberCards }) => {
-
-  const { img, name, info } = cardInfo;
+  
   const navigate = useNavigate();
-
+  const { img, name, info } = cardInfo;
+ 
   const handleClick = () => {
     navigate(`country/${name}`);
-    localStorage.setItem('cards', JSON.stringify(numberCards))
-  }
+    localStorage.setItem('cards', JSON.stringify(numberCards));
+  };
 
   return (
     <StyledCard onClick={handleClick}>
@@ -21,12 +28,12 @@ const Card = ({ cardInfo, numberCards }) => {
       <InfoWrapper>
         <h2>{name}</h2>
         <ListDescription>
-          {info.map(elem =>
+          {info.map((elem) => (
             <li key={elem.title}>
-              <DescriptionTitle>{elem.title}:</DescriptionTitle>
+              <DescriptionTitle>{elem.title}</DescriptionTitle>
               <DescriptionText>{elem.description}</DescriptionText>
             </li>
-          )}
+          ))}
         </ListDescription>
       </InfoWrapper>
     </StyledCard>

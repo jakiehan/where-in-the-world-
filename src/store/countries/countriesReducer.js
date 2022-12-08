@@ -1,10 +1,10 @@
-import { SET_COUNTRIES, SET_ERROR, SET_LOADING } from './countriesActions.js';
+import { SET_COUNTRIES, SET_ERROR, SET_LOADING } from './countriesActions';
 
 const initialState = {
   list: [],
   error: null,
   status: 'idle',
-}
+};
 
 export const countriesReducer = (state = initialState, { type, payload }) => {
   switch (type) {
@@ -13,7 +13,7 @@ export const countriesReducer = (state = initialState, { type, payload }) => {
         ...state,
         status: 'loading',
         error: null,
-      }
+      };
     }
     case SET_COUNTRIES: {
       return {
@@ -21,17 +21,17 @@ export const countriesReducer = (state = initialState, { type, payload }) => {
         status: 'received',
         list: payload,
         error: null,
-      }
+      };
     }
     case SET_ERROR: {
       return {
         ...state,
         error: payload,
         status: 'rejected',
-      }
+      };
     }
     default: {
-      return state
+      return state;
     }
   }
-}
+};

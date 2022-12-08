@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { StyledList } from '../../styles/List.styled.js';
+import { StyledList } from '../../styles/List.styled';
 
 export const StyledListCountries = styled(StyledList)`
   display: grid;

@@ -6,7 +6,7 @@ export const StyledContainer = styled.div`
   margin: 0 auto;
   padding: 0 30px;
 
-  @media (max-width: ${({theme}) => theme.media.mobile}) {
+  @media (max-width: ${({ theme }) => theme.media.mobile}) {
     padding: 0 16px;
   }
 `

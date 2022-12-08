@@ -15,5 +15,4 @@ export const refactorCountryInfo = (country) => ({
       description: country.capital.join(', '),
     },
   ],
-})
-
+});

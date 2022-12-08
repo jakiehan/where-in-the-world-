@@ -1,13 +1,8 @@
 import React from 'react';
-import { StyledListCountries } from './ListCountries.styled.js';
+import { StyledListCountries } from './ListCountries.styled';
 
-const ListCountries = ({ children }) => {
-
-  return (
-    <StyledListCountries>
-      {children}
-    </StyledListCountries>
-  );
-};
+const ListCountries = ({ children }) => (
+  <StyledListCountries>{children}</StyledListCountries>
+);
 
 export default ListCountries;

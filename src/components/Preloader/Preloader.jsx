@@ -1,15 +1,11 @@
 import React from 'react';
-import { StyledPreloader, Span } from './Preloader.styled.js';
-import { preloaderMsg } from '../../utils/constants/generalConstants.js';
+import { StyledPreloader, Span } from './Preloader.styled';
+import { preloaderMsg } from '../../utils/constants/generalConstants';
 
-const Preloader = () => {
-  return (
-    <StyledPreloader>
-      <Span>
-        {preloaderMsg}
-      </Span>
-    </StyledPreloader>
-  );
-};
+const Preloader = () => (
+  <StyledPreloader>
+    <Span>{preloaderMsg}</Span>
+  </StyledPreloader>
+);
 
 export default Preloader;

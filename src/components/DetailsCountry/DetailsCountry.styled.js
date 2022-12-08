@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { StyledList } from '../../styles/List.styled.js';
-import { StyledButton } from '../../styles/Button.styled.js';
+import { StyledList } from '../../styles/List.styled';
+import { StyledButton } from '../../styles/Button.styled';
 
 export const StyledDetailsCountry = styled.div`
   display: grid;

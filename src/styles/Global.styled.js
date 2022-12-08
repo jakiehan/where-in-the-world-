@@ -5,9 +5,9 @@ const GlobalStyled = createGlobalStyle`
   ${normalize}
   
   body {
-    background-color: ${({theme}) => theme.color.bgBody};
+    background-color: ${({ theme }) => theme.color.bgBody};
     font-family: 'Nunito Sans', Arial, sans-serif;
-    font-weight: ${({theme}) => theme.fontWeight.small};;
+    font-weight: ${({ theme }) => theme.fontWeight.small};;
     line-height: 0;
     margin: 0 auto;
     display: flex;

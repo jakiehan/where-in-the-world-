@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { StyledButton } from '../../styles/Button.styled.js';
+import { StyledButton } from '../../styles/Button.styled';
 
 export const StyledDetailedPage = styled.section`
   display: grid;

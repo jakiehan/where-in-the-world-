@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import { IoChevronDown } from 'react-icons/io5';
-import { IoClose } from 'react-icons/io5';
+import { IoChevronDown, IoClose } from 'react-icons/io5';
 
 export const StyledDropdownContainer = styled.div`
   width: 175px;
@@ -8,7 +7,7 @@ export const StyledDropdownContainer = styled.div`
   border-radius: ${({ theme }) => theme.borderRadius.lg};
   box-shadow: ${({ theme }) => theme.color.shadow};
 
-  @media (max-width: ${({theme}) => theme.media.mobile}) {
+  @media (max-width: ${({ theme }) => theme.media.mobile}) {
     width: 160px;
     border-radius: ${({ theme }) => theme.borderRadius.md};
   }
@@ -28,12 +27,12 @@ export const Wrapper = styled.div`
     box-shadow: ${({ theme }) => theme.color.shadowHov};
   }
 
-  @media (max-width: ${({theme}) => theme.media.mobile}) {
+  @media (max-width: ${({ theme }) => theme.media.mobile}) {
     height: 34px;
     border-radius: ${({ theme }) => theme.borderRadius.md};
   }
 
-  @media (max-width: ${({theme}) => theme.media.tablet.max}) and (min-width: ${({ theme }) => theme.media.tablet.min}) {
+  @media (max-width: ${({ theme }) => theme.media.tablet.max}) and (min-width: ${({ theme }) => theme.media.tablet.min}) {
     height: 35px;
   }
 `
@@ -51,12 +50,12 @@ export const Title = styled.p`
   margin: 0;
   color: ${({ theme }) => theme.color.text};
 
-  @media (max-width: ${({theme}) => theme.media.mobile}) {
+  @media (max-width: ${({ theme }) => theme.media.mobile}) {
     font-size: 13px;
     line-height: 14px;
   }
-  
-  @media (max-width: ${({theme}) => theme.media.tablet.max}) and (min-width: ${({ theme }) => theme.media.tablet.min}) {
+
+  @media (max-width: ${({ theme }) => theme.media.tablet.max}) and (min-width: ${({ theme }) => theme.media.tablet.min}) {
     font-size: 14px;
     line-height: 15px;
   }
@@ -67,7 +66,7 @@ export const CloseButton = styled(IoClose)`
   height: 18px;
   color: ${({ theme }) => theme.color.text};
 
-  @media (max-width: ${({theme}) => theme.media.mobile}) {
+  @media (max-width: ${({ theme }) => theme.media.mobile}) {
     width: 16px;
     height: 16px;
   }
@@ -86,14 +85,14 @@ export const List = styled.div`
   background-color: ${({ theme }) => theme.color.bgElem};
   box-shadow: ${({ theme }) => theme.color.shadow};
   border-radius: ${({ theme }) => theme.borderRadius.sm} ${({ theme }) => theme.borderRadius.sm} ${({ theme }) => theme.borderRadius.lg} ${({ theme }) => theme.borderRadius.lg};
-  visibility: ${({ isOpen }) => isOpen ? 'visible' : 'hidden'};
+  visibility: ${({ isOpen }) => (isOpen ? 'visible' : 'hidden')};
   position: absolute;
   top: 45px;
-  
+
   &:hover {
     box-shadow: ${({ theme }) => theme.color.shadowHov};
   }
-  
+
   ul {
     padding: 10px 0;
     margin: 0;
@@ -102,7 +101,7 @@ export const List = styled.div`
     flex-direction: column;
     gap: 10px;
   }
-  
+
   p {
     font-size: 15px;
     line-height: 17px;
@@ -112,12 +111,12 @@ export const List = styled.div`
     cursor: pointer;
     color: ${({ theme }) => theme.color.text};
   }
-  
+
   & p:hover {
     box-shadow: ${({ theme }) => theme.color.shadowHov};
   }
 
-  @media (max-width: ${({theme}) => theme.media.mobile}) {
+  @media (max-width: ${({ theme }) => theme.media.mobile}) {
     p {
       font-size: 13px;
       line-height: 14px;
@@ -125,7 +124,7 @@ export const List = styled.div`
     }
   }
 
-  @media (max-width: ${({theme}) => theme.media.tablet.max}) and (min-width: ${({ theme }) => theme.media.tablet.min}) {
+  @media (max-width: ${({ theme }) => theme.media.tablet.max}) and (min-width: ${({ theme }) => theme.media.tablet.min}) {
     p {
       font-size: 14px;
       line-height: 15px;

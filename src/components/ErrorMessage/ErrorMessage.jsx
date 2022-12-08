@@ -1,12 +1,10 @@
 import React from 'react';
-import { StyledErrorMessage } from './ErrorMessage.styled.js';
+import { StyledErrorMessage } from './ErrorMessage.styled';
 
-const ErrorMessage = ({ children }) => {
-  return (
-    <StyledErrorMessage>
-      <p>{children}</p>
-    </StyledErrorMessage>
-  );
-};
+const ErrorMessage = ({ children }) => (
+  <StyledErrorMessage>
+    <p>{children}</p>
+  </StyledErrorMessage>
+);
 
 export default ErrorMessage;

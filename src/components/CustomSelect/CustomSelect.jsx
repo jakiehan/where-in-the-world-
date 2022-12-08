@@ -1,9 +1,17 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setRegion } from '../../store/controls/controlsActions.js';
-import { selectRegion } from '../../store/controls/controlsSelectors.js';
-import { StyledDropdownContainer, Wrapper, TitleWrapper, Title, CloseButton, Arrow, List } from './CustomSelect.styled.js';
+import { setRegion } from '../../store/controls/controlsActions';
+import { selectRegion } from '../../store/controls/controlsSelectors';
 import useOutsideActions from '../../hooks/useOutsideActions';
+import {
+  StyledDropdownContainer,
+  Wrapper,
+  TitleWrapper,
+  Title,
+  CloseButton,
+  Arrow,
+  List,
+} from './CustomSelect.styled';
 
 const CustomSelect = ({ options }) => {
 
@@ -15,17 +23,17 @@ const CustomSelect = ({ options }) => {
 
   const handleClick = () => {
     setIsOpen(!isOpen);
-  }
+  };
 
-  const handleClickOption = value => () => {
+  const handleClickOption = (value) => () => {
     setIsOpen(false);
     dispatch(setRegion(value));
-  }
+  };
 
   const handleClickCloseBtn = (e) => {
     dispatch(setRegion(''));
     e.stopPropagation();
-  }
+  };
 
   return (
     <StyledDropdownContainer ref={ref}>
@@ -34,22 +42,20 @@ const CustomSelect = ({ options }) => {
           <Title>
             {region || title}
           </Title>
-          {region && (
-            <CloseButton onClick={handleClickCloseBtn} />
-          )}
+          {region && <CloseButton onClick={handleClickCloseBtn} />}
         </TitleWrapper>
         <Arrow />
       </Wrapper>
       <List isOpen={isOpen}>
         <ul>
-          {optionsMap.map(option =>
+          {optionsMap.map((option) => (
             <li
               key={Math.random() + option}
               onClick={handleClickOption(option)}
             >
               <p>{option}</p>
             </li>
-          )}
+          ))}
         </ul>
       </List>
     </StyledDropdownContainer>
